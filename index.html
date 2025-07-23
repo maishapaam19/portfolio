@@ -2,95 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/skills.css" />
+  <link rel="stylesheet" href="assets/css/projects.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <title>AC Website</title>
 </head>
 <body>
-  
-  <!-- NAVIGATION -->
-  <header>
-    <nav>
-      <h1 class="logo">My Portfolio</h1>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    
+  <div include-html="components/header.html"></div>
 
-  <!-- HOME SECTION -->
-  <section id="home" class="section home">
-    <b>Hi,I'm Deroy, April Rose A.</b>
-    <br>Your Ganda-Gandahang EaGirl</br>
-    <img src="Itsme.png" alt="My Profile">
-  </section>
+  <main>
+  <div include-html="components/home.html"></div>
+  <div include-html="components/about.html"></div>
+  <div include-html="components/Skills.html"></div>
+  <div include-html="components/projects.html"></div>
+  <div include-html="components/contact.html"></div>
+  </main>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section about">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <b>I'm just starting my journey in programming.
-        I love learning and discovering new things every day.
-        I'm passionate about creating, building, and exploring technology.
-      </b>
-    </div>
-  </section>
+  <div include-html="components/footer.html"></div>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <div class="Skills-card">
-        <h3>Using Microsoft Word</h3>
-        <p></p>
-        <h3>Using Microsoft Powerpoint</h3>
-        <p></p>
-        <h3>HTML(Basic)</h3>
-        <p></p>
-        <h3>Creating Folder</h3>
-        <p></p>
-      </div>
-      
-    </ul>
-  </section>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>Development Of Point-Of-Sale and Meat Inventory System</h3>
-        <p>A Point of Sale (POS) system is a tool with software and hardware that helps businesses take
-            payments, manage sales, and track inventory in real time. It is better than old cash registers
-            because it gives reports and allows many types of payments, like digital and contactless. 
-            POS systems help small businesses work faster, make fewer mistakes, and give better service
-            by automating tasks and showing sales and stock data quickly.
-        </p>
-      </div>
-      <div class="project-card">
-        <h3>Student Information System</h3>
-        <p>This project is a computer system that helps schools keep and manage student records.
-            It stores student Names, Grade, Contact Information, and Attendance. Teachers and school
-            staff can Add, Update, or search student data Easily. the system saves time and reduces
-            errors because everything is done on the computer instead of paper. 
-        </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: <a href="maisha.paam17@gmail.com">maisha.paam17@gmail.com</a></p>
-    <p>Contact Number: <a href="09366104916">09366104916</a></p>
-  </section>
 
-  <footer>
-    <p>&copy; 2025 Deroy, April Rose A. at your reserved.</p>
-  </footer>
+
+  <script>
+
+    function includeHTML() {
+      const elements = document.querySelectorAll('[include-html]');
+      elements.forEach(el => {
+        const file = el.getAttribute('include-html');
+        if (file) {
+          fetch(file)
+            .then(res => {
+              if (res.ok) return res.text();
+              else throw new Error(`Error loading ${file}`);
+            })
+            .then(data => {
+              el.innerHTML = data;
+              el.removeAttribute("include-html");
+              includeHTML();
+            })
+            .catch(err => {
+              el.innerHTML = `Could not load ${file}`;
+              console.error(err);
+            });
+        }
+      });
+    }
+
+    includeHTML();
+  </script>
+
 </body>
 </html>
