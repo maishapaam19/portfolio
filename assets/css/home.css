@@ -1,0 +1,165 @@
+/* Home Section Styles */
+.section {
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home {
+  background-color: white;
+  width: 100%;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+}
+
+.home-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.home-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.home-text h1:hover {
+  color: #555;
+}
+
+.highlight {
+  color: #ffb6c1;
+  transition: color 0.3s ease;
+}
+
+.highlight:hover {
+  color: #ff91a4;
+  text-shadow: 0 2px 8px rgba(255, 182, 193, 0.4);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #ffb6c1;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.subtitle:hover {
+  color: #ff91a4;
+  transform: translateX(10px);
+}
+
+.intro {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+.intro:hover {
+  color: #444;
+}
+
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+  border: 3px solid #ffb6c1;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 15px;
+  }
+  
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .home-text h1 {
+    font-size: 2.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .intro {
+    font-size: 1.1rem;
+  }
+  
+  .profile-img {
+    max-width: 350px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 10px;
+    min-height: auto;
+  }
+  
+  .home-content {
+    gap: 30px;
+  }
+  
+  .home-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .intro {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .profile-img {
+    max-width: 280px;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.02) rotate(1deg);
+  }
+  
+  .subtitle:hover {
+    transform: translateX(5px);
+  }
+}

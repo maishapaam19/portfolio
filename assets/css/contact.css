@@ -1,0 +1,219 @@
+* Contact Section Styles */
+#contact {
+  background: white;
+  position: relative;
+}
+
+#contact::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ffb6c1, transparent);
+}
+
+.contact-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 50px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.contact-title::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffb6c1, #ff91a4);
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.contact-title:hover {
+  color: #ff91a4;
+  transform: translateY(-3px);
+}
+
+.contact-title:hover::before {
+  width: 120px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 182, 193, 0.2);
+  border-radius: 15px;
+  padding: 25px 35px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.2);
+  border-color: rgba(255, 182, 193, 0.4);
+}
+
+.contact-item:hover::before {
+  left: 100%;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover .contact-label {
+  color: #ff91a4;
+}
+
+.contact-link {
+  color: #ffb6c1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-link:hover {
+  color: #ff91a4;
+  transform: scale(1.05);
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 15px;
+  }
+  
+  .projects-title,
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+  
+  .projects-list {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .project-header {
+    padding: 25px 25px 15px 25px;
+  }
+  
+  .project-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .project-body {
+    padding: 15px 25px 25px 25px;
+  }
+  
+  .contact-item {
+    padding: 20px 25px;
+    max-width: 350px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 10px;
+  }
+  
+  .projects-title,
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .projects-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-card {
+    border-radius: 15px;
+  }
+  
+  .project-header {
+    padding: 20px 20px 15px 20px;
+  }
+  
+  .project-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .project-body {
+    padding: 15px 20px 20px 20px;
+  }
+  
+  .project-body p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+  
+  .contact-info {
+    gap: 20px;
+  }
+  
+  .contact-item {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .contact-label,
+  .contact-link {
+    font-size: 1rem;
+  }
+  
+  .project-card:hover,
+  .contact-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .projects-title:hover,
+  .contact-title:hover {
+    transform: translateY(-2px);
+  }
+}
